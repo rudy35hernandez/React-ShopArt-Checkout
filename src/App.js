@@ -3,7 +3,10 @@ import Header from './Header.js'
 
 function App() {
   return (
-    <Header />
+    <div>
+      <Header />
+      <h1>Home Page</h1>
+    </div>
   );
 }
 
