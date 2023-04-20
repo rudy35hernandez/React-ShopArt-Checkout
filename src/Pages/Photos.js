@@ -1,4 +1,5 @@
 import React from "react"
+import Image from "./Components/Image.js"
 
 function Photos(){
     return(
