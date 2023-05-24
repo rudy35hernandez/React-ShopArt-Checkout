@@ -13,10 +13,11 @@ function Photos(){
         )
     })
     return(
-        <div>
-            <h2>Photos go here</h2>
-            {allImages}
-        </div>
+        
+            <main className="photos">
+                {allImages}
+            </main>
+           
     )
 }
 
