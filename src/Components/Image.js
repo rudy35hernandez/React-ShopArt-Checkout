@@ -1,8 +1,15 @@
 import React from 'react'
 
 function Image({className, img}){
+
+    const [hovered, setHovered] = React.useState(false)
+
     return(
-        <div className={`${className} image-container`}>
+        <div 
+        className={`${className} image-container`}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        >
             <img src={img.url} className="image-grid"/>
         </div>
     )
