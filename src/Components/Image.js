@@ -11,6 +11,9 @@ function Image({className, img}){
         onMouseLeave={() => setHovered(false)}
         >
             <img src={img.url} className="image-grid"/>
+            {hovered ? <i className="ri-heart-line favorite"></i> : ""}
+            {hovered ? <i className="ri-add-circle-line cart"></i>: ""}
+
         </div>
     )
 }
