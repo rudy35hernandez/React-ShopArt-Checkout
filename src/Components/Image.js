@@ -1,8 +1,13 @@
 import React from 'react'
+import {Context} from "../Context.js"
 
 function Image({className, img}){
 
     const [hovered, setHovered] = React.useState(false)
+    const {toggleFavorite} = React.useContext(Context)
+
+    const heartIcon = hovered ? <i className="ri-heart-line favorite" onClick={() => toggleFavorite(img.id)}></i> : ""
+    const cartIcon = hovered ? <i className="ri-add-circle-line cart"></i>: ""
 
     return(
         <div 
@@ -11,9 +16,8 @@ function Image({className, img}){
         onMouseLeave={() => setHovered(false)}
         >
             <img src={img.url} className="image-grid"/>
-            {hovered ? <i className="ri-heart-line favorite"></i> : ""}
-            {hovered ? <i className="ri-add-circle-line cart"></i>: ""}
-
+            {heartIcon}
+            {cartIcon}
         </div>
     )
 }

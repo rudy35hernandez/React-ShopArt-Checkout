@@ -9,9 +9,16 @@ function ContextProvider({children}){
             .then(res => res.json())
             .then(data => setAllPhotos(data))
     }, [])
+
+    function toggleFavorite(id){
+        const newArr = allPhotos.map(photo => {
+           return photo.id === id ? {...photo, isFavorite: !photo.isFavorite} : photo
+        })
+        setAllPhotos(newArr)
+    }
     
     return(
-        <Context.Provider value={{allPhotos: allPhotos}}>
+        <Context.Provider value={{allPhotos, toggleFavorite}}>
             {children}
         </Context.Provider>
     )
