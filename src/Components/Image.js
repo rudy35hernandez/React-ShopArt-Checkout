@@ -1,13 +1,14 @@
 import React from 'react'
 import {Context} from "../Context.js"
+import PropTypes from "prop-types"
 
 function Image({className, img}){
 
     const [hovered, setHovered] = React.useState(false)
-    const {toggleFavorite} = React.useContext(Context)
+    const {toggleFavorite, addToCart} = React.useContext(Context)
 
-    // const heartIcon = hovered ? <i className="ri-heart-line favorite" onClick={() => toggleFavorite(img.id)}></i> : ""
-    const cartIcon = hovered ? <i className="ri-add-circle-line cart"></i>: ""
+    
+    const cartIcon = hovered ? <i className="ri-add-circle-line cart" onClick={() => addToCart(img)}></i>: ""
 
     function heartToggle(){
         if(img.isFavorite){
@@ -28,6 +29,15 @@ function Image({className, img}){
             {cartIcon}
         </div>
     )
+
+}
+
+Image.propTypes = {
+    img: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
+        isFavorite: PropTypes.bool
+    })
 }
 
 export default Image

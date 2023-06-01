@@ -3,6 +3,7 @@ const Context = React.createContext()
 
 function ContextProvider({children}){
     const[allPhotos, setAllPhotos] = React.useState([])
+    const [cartItems, setCartItems] = React.useState([])
 
     React.useEffect(() => {
         fetch(`https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json`)
@@ -16,9 +17,13 @@ function ContextProvider({children}){
         })
         setAllPhotos(newArr)
     }
+
+    function addToCart(newItem){
+        setCartItems(prevArr => [...prevArr, newItem])
+    }
     
     return(
-        <Context.Provider value={{allPhotos, toggleFavorite}}>
+        <Context.Provider value={{allPhotos, toggleFavorite, addToCart}}>
             {children}
         </Context.Provider>
     )
