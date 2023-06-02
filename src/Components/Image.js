@@ -5,10 +5,19 @@ import PropTypes from "prop-types"
 function Image({className, img}){
 
     const [hovered, setHovered] = React.useState(false)
-    const {toggleFavorite, addToCart} = React.useContext(Context)
+    const {toggleFavorite, addToCart, cartItems} = React.useContext(Context)
 
     
-    const cartIcon = hovered ? <i className="ri-add-circle-line cart" onClick={() => addToCart(img)}></i>: ""
+    
+
+    function cartIcon(){
+        const alreadyInCart = cartItems.some(item => item.id === img.id)
+        if(alreadyInCart){
+            return <i className="ri-shopping-cart-fill cart" onClick={() => addToCart(img)}></i>
+        } else if(hovered){
+            return <i className="ri-add-circle-line cart" onClick={() => addToCart(img)}></i>
+        }
+    }
 
     function heartToggle(){
         if(img.isFavorite){
@@ -26,7 +35,7 @@ function Image({className, img}){
         >
             <img src={img.url} className="image-grid"/>
             {heartToggle()}
-            {cartIcon}
+            {cartIcon()}
         </div>
     )
 
