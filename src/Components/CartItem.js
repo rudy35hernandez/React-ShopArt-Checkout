@@ -1,9 +1,11 @@
 import React from "react"
 
 
-function CartItem(item){
+function CartItem({item}){
     return (
-        <h2>Test</h2>
+        <h2>
+            <img src={item.url}></img>
+        </h2>
     )
 }
 
