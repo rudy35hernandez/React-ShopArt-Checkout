@@ -1,4 +1,5 @@
 import React from "react"
+import CartItem from "../Components/CartItem.js"
 
 function Cart(){
     return(
