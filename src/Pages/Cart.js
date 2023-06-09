@@ -11,10 +11,10 @@ function Cart(){
     })
 
     return(
-        <div>
-            <h2>My Cart Goes Here</h2>
+        <main className="cart-page">
+            <h1>Check Out</h1>
             {cartItemElements}
-        </div>
+        </main>
     )
 }
 
