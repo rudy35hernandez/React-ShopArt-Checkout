@@ -17,7 +17,7 @@ function Cart(){
         <main className="cart-page">
             <h1>Check Out</h1>
             {cartItemElements}
-            <p className="total-cost">Total: ${totalDisplay}</p>
+            <p className="total-cost">Total: {totalDisplay}</p>
             <div className="order-button">
                 <button>Place Order</button>
             </div>
