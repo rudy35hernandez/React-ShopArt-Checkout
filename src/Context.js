@@ -22,9 +22,9 @@ function ContextProvider({children}){
         setCartItems(prevArr => [...prevArr, newItem])
     }
     
-    function removeFromCart(img){
+    function removeFromCart(id){
         setCartItems(prevState => {
-            return prevState.filter(photo => photo.id !== img.id)
+            return prevState.filter(photo => photo.id !== id)
         })
     }
 

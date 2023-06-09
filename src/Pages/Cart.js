@@ -4,11 +4,10 @@ import CartItem from "../Components/CartItem.js"
 
 function Cart(){
     const {cartItems} = useContext(Context)
-    const cartItemElements = cartItems.map(item => {
-        return (
-            <CartItem key={item.id} item={item}/>
-        )
-    })
+    
+    const cartItemElements = cartItems.map(item => (
+        <CartItem key={item.id} item={item}/>
+    ))
 
     return(
         <main className="cart-page">
