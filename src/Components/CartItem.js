@@ -1,7 +1,8 @@
-import React, {useContext} from "react"
+import React, {useState, useContext} from "react"
 import {Context} from "../Context"
 
 function CartItem({item}) {
+    const [isHovered, setIsHovered] = useState(true)
     const {removeFromCart} = useContext(Context)
     
     return (
