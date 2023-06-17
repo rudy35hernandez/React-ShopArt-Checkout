@@ -1,11 +1,16 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 const Context = React.createContext()
 
 function ContextProvider({children}){
-    const[allPhotos, setAllPhotos] = React.useState([])
-    const [cartItems, setCartItems] = React.useState([])
+    const[allPhotos, setAllPhotos] = useState([])
+    const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("cartItems") || []))
 
-    React.useEffect(() => {
+    useEffect(() => {
+        localStorage.setItem("cartItems", JSON.stringify(cartItems))
+    }, [cartItems])
+   
+
+    useEffect(() => {
         fetch(`https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json`)
             .then(res => res.json())
             .then(data => setAllPhotos(data))
