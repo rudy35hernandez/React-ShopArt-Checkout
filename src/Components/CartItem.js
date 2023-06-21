@@ -1,6 +1,7 @@
 import React, {useState, useContext} from "react"
 import PropTypes from "prop-types"
 import {Context} from "../Context"
+import useHover from "../hooks/useHover.js"
 
 function CartItem({item}) {
     const [isHovered, setIsHovered] = useState(false)
